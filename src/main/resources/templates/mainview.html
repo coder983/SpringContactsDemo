@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title>Contacts View</title>
+</head>
+<body>
+	<h1>Your Contacts</h1>
+	<br/>
+	<br/>
+	<table>
+		<tr>
+			<th>Select</th>
+			<th>Last Name</th>
+			<th>First Name</th>
+			<th>Address</th>
+			<th>City</th>
+			<th>State</th>
+			<th>Zip Code</th>
+			<th>Email</th>
+			<th>Phone</th>
+		</tr>
+		<tr th:each="contact:${contacts}">
+			<td><input type="checkbox" th:value="${contact.contactid}"/></td>
+			<td th:text="${contact.firstname}">fname</td>
+			<td th:text="${contact.lastname}">lname</td>
+			<td th:text="${contact.address}">addr</td>
+			<td th:text="${contact.city}">city</td>
+			<td th:text="${contact.state}">ZZ</td>
+			<td th:text="${contact.zipcode}">00000-0000</td>
+			<td th:text="${contact.email}">andrew@aws.com</td>
+			<td th:text="${contact.phone}">000-000-0000</td>
+		</tr>
+	</table>
+	<br/>
+	<table>
+		<tr>
+			<td><a href="/add">Add Contact</a></td>
+			<td><input type="button" value="Delete Contact"/></td>
+			<td><input type="button" value="Update Contact"/></td>
+		</tr>
+	</table>
+</body>
+</html>

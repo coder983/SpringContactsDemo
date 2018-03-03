@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title>Add Contact</title>
+</head>
+<body>
+	<h1>Add a Contact</h1>
+	<br/>
+	<br/>
+	<form action="/create" method="post">
+	<table id="input_table">
+		<tr>
+			<td>
+				<label for="input-address">Address:</label>
+				<input id="input-address" name="address" placeholder="Text" type="text"/>
+			 </td>
+			 <td>
+				 <label for="input-city">City:</label>
+				 <input id="input-city" name="city" placeholder="Text" type="text"/>
+			 </td>
+			 <td>
+			 	<label for="input-state">State:</label>
+				 <select id="input-state">
+					 <option value="Value1">Option1</option>
+					 <option value="Value2">Option2</option>
+				 </select>
+			 </td>
+		</tr>
+		<tr>
+			 <td>
+				 <label for="input-fname">First Name:</label>
+				 <input id="input-fname" name="firstname" placeholder="Text" type="text"/>
+			 </td>
+			 <td>
+				 <label for="input-lname">Last Name:</label>
+				 <input id="input-lname" name="lastname" placeholder="Text" type="text"/>
+			 </td>
+			 <td>
+				 <label for="input-email">Email:</label>
+				 <input id="input-email" name="email" placeholder="xxx@xxx.xxx" type="email"/>
+			 </td>
+		</tr>
+		<tr>
+			 <td>
+				 <label for="input-phone">Phone:</label>
+				 <input id="input-phone" name="phone" placeholder="(000)000-0000" type="text"/>
+			 </td>
+		</tr>
+	</table>
+	<br/>
+	<table>
+		<tr>
+			<td><a href="/">Cancel</a>
+			<td><input type="reset" value="Reset"/></td>
+			<td><input type="submit" value="Submit"/></td>
+		</tr>
+	</table>
+	</form>
+</body>
+</html>
