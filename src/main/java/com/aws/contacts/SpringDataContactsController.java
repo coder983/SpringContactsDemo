@@ -38,7 +38,9 @@ public class SpringDataContactsController {
 	}
 	
 	@RequestMapping("/add")
-	public String addContact(){
+	public String addContact(ModelMap model){
+		
+		service.loadStates(model);
 		
 		return "addcontact";
 	}
