@@ -8,43 +8,48 @@
 	<h1>Add a Contact</h1>
 	<br/>
 	<br/>
-	<form action="/create" method="post">
+	<form th:action="@{/create}" th:object="${contact}" method="post">
 	<table id="input_table">
 		<tr>
 			<td>
 				<label for="input-address">Address:</label>
-				<input id="input-address" name="address" placeholder="Text" type="text"/>
+				<input id="input-address" name="address" placeholder="Text" th:field="${contact.address}" type="text"/>
 			 </td>
 			 <td>
 				 <label for="input-city">City:</label>
-				 <input id="input-city" name="city" placeholder="Text" type="text"/>
+				 <input id="input-city" name="city" placeholder="Text" th:field="${contact.city}" type="text"/>
 			 </td>
 			 <td>
-			 	<label for="input-state">State:</label>
-				 <select id="input-state">
-					 <option value="Value1">Option1</option>
-					 <option value="Value2">Option2</option>
-				 </select>
+			 	<label for="">State:</label>
+				 <select  th:field="${contact.state}" id="input-state">
+    					<option value="xx" >Select a State</option>
+    					<option th:each="state : ${states}" th:value="${state.abbrev}" th:text="${state.name}"></option>
+    				</select>
 			 </td>
 		</tr>
 		<tr>
 			 <td>
 				 <label for="input-fname">First Name:</label>
-				 <input id="input-fname" name="firstname" placeholder="Text" type="text"/>
+				 <input id="input-fname" name="firstname" placeholder="Text" th:field="${contact.firstname}" type="text"/>
 			 </td>
 			 <td>
 				 <label for="input-lname">Last Name:</label>
-				 <input id="input-lname" name="lastname" placeholder="Text" type="text"/>
+				 <input id="input-lname" name="lastname" th:field="${contact.lastname}" placeholder="Text" type="text"/>
 			 </td>
-			 <td>
-				 <label for="input-email">Email:</label>
-				 <input id="input-email" name="email" placeholder="xxx@xxx.xxx" type="email"/>
-			 </td>
+			 
 		</tr>
 		<tr>
 			 <td>
+				 <label for="input-zipcode">Zip Code:</label>
+				 <input id="input-zipcode" name="zipcode" placeholder="00000-0000" th:field="${contact.zipcode}" type="text"/>
+			 </td>
+			<td>
+				 <label for="input-email">Email:</label>
+				 <input id="input-email" name="email" placeholder="xxx@xxx.xxx" th:field="${contact.email}" type="email"/>
+			 </td>
+			 <td>
 				 <label for="input-phone">Phone:</label>
-				 <input id="input-phone" name="phone" placeholder="(000)000-0000" type="text"/>
+				 <input id="input-phone" name="phone" placeholder="(000)000-0000" th:field="${contact.phone}" type="text"/>
 			 </td>
 		</tr>
 	</table>

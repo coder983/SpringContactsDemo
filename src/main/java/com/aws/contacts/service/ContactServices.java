@@ -42,5 +42,12 @@ public class ContactServices {
 		
 		model.put("states", states);
 	}
+	
+	public void setupAdd(ModelMap model) {
+		
+		Contact contact = new Contact();
+		
+		model.put("contact", contact);
+	}
 
 }

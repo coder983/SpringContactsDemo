@@ -6,10 +6,12 @@ package com.aws.contacts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.aws.contacts.domain.Contact;
 import com.aws.contacts.domain.ContactRepository;
 import com.aws.contacts.service.ContactServices;
 
@@ -41,13 +43,16 @@ public class SpringDataContactsController {
 	public String addContact(ModelMap model){
 		
 		service.loadStates(model);
+		service.setupAdd(model);
 		
 		return "addcontact";
 	}
 	
 	@PostMapping("/create")
-	public String createContact() {
+	public String createContact(@ModelAttribute Contact contact, ModelMap model) {
 		
+		contactRepo.save(contact);
+		service.ListContacts(model);
 		return "mainview";
 	}
 
